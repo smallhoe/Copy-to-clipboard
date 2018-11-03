@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  
+</head>
+<body>
+    <div class="container" id="container">
+            
+  
+            <div class="col-md-6 " v-for="(item, index) in items" >
+                    <table class="table">
+                            <thead>
+                              <tr>
+                              
+                                <th>{{item.city}}</th>
+                                <th></th>
+                               
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="info" v-for=" ap in  item.ap"  >
+                               
+                                <td>
+                                    <div class="input-group">
+                                                      
+                                        <input type="text" class="form-control" placeholder="Search for..."v-model="ap.account"   >
+                                        <span class="input-group-btn">
+                                          <button class="btn btn-info" type="button">账号</button>
+                                        </span>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="input-group">
+                                                      
+                                        <input type="text" class="form-control" placeholder="Search for..."  v-model="ap.password" >
+                                        <span class="input-group-btn">
+                                          <button class="btn btn-info" type="button">密码</button>
+                                        </span>
+                                      </div>
+                                </td>
+                              </tr>
+                              
+                             
+                            </tbody>
+                          </table>
+                  
+                   
+                         
+               
+            </div>
+           
+    
+        
+    </div>
+   
+    <script>
+       $(function(){
+           $('button').on('click',function(){
+            $(this).parent().prev().select();
+             document.execCommand("Copy");
+            //  var s=document.execCommand("Copy");
+                //  $(s);
+                //  console.log(s);
+           });
+       });
+
+    </script>
+    <script>
+        
+         var container=new Vue({
+            el:'#container',
+            data:{
+               
+                items:[
+                   {
+                        city:'广州' ,
+                        ap:[
+                            {  account:'limon',password:'123456'},
+                            
+                        ]
+
+                          
+                     
+                        
+                   }
+                   ,{
+                        city:'江门' ,
+                        ap:[
+                            {  account:'aaaa',password:'456789'},
+                            {  account:'12356',password:'456789'}
+                           
+                        ]
+                    }
+                    ,{ 
+                        city:'佛山' ,
+                        ap:[
+                           
+                            {  account:'12356',password:'456789'},
+                            {  account:'12356',password:'456789'}
+                        ]
+                    }
+                    ,{ 
+                       city:'珠海',
+                       ap:[
+                            {  account:'12356',password:'456789'}
+                           
+                        ]
+                   }
+                   ,{ 
+                       city:'珠海',
+                       ap:[
+                           
+                            {  account:'12356',password:'456789'},
+                            {  account:'12356',password:'456789'}
+                           
+                        ]
+                   }
+                   ,{ 
+                       city:'珠海',
+                       ap:[
+                            {  account:'12356',password:'456789'}
+                           
+                        ]
+                   }
+                ]
+                
+            }
+
+         });
+    </script>
+</body>
+</html>
